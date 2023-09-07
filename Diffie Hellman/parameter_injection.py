@@ -1,6 +1,6 @@
 from pwn import *
 import json
-from utils import *
+from utils import decrypt_flag, json_recv, json_send
 
 r = remote('socket.cryptohack.org', 13371)
 

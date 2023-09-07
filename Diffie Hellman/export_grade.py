@@ -1,5 +1,5 @@
 from pwn import *
-from utils import *
+from utils import decrypt_flag, json_recv, json_send
 import json
 from sage.all import *
 
