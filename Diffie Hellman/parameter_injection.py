@@ -1,21 +1,10 @@
 from pwn import *
 import json
-from decrypt import *
-
-def json_recv():
-    line = r.recvline()
-    if b'{'!=line[0] or b'}'!=line[-1]:
-        return line
-    return json.loads(line.decode())
-
-def json_send(hsh):
-    request = json.dumps(hsh).encode()
-    r.sendline(request)
+from utils import *
 
 r = remote('socket.cryptohack.org', 13371)
 
-
-received = json_recv()
+received = json_recv(r)
 received = json.loads(received[received.find(b'{'): received.find(b'}')+1].decode())
 
 p = received['p']
@@ -29,9 +18,9 @@ to_send = {
     "A" : "0x04"
 }
 
-json_send(to_send)
+json_send(r, to_send)
 
-received = json_recv()
+received = json_recv(r)
 received = json.loads(received[received.find(b'{'): received.find(b'}')+1].decode())
 
 
@@ -39,9 +28,9 @@ received = json.loads(received[received.find(b'{'): received.find(b'}')+1].decod
 to_send = {
     "B" : "0x04"
 }
-json_send(to_send)
+json_send(r, to_send)
 
-data = json_recv()
+data = json_recv(r)
 data = json.loads(data[data.find(b'{'): data.find(b'}')+1].decode())
 
 shared_secret = pow(int(A, 16), 2, int(p,16))
