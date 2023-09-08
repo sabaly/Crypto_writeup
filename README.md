@@ -2,7 +2,7 @@
 FROM :  `CryptoHack`
 
 # Mathematics
-`Modular arithmetics`, `Lattices`, `Elliptic curves`
+`Modular arithmetics`,`Diffie Hellman`, `RSA`, `Lattices`, `Elliptic curves`
 
 # General
 `XOR`, `Encoding`
