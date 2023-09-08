@@ -3,7 +3,7 @@ from Crypto.Util.Padding import pad, unpad
 from Crypto.Util.number import inverse
 import hashlib
 from math import floor
-
+import json
 
 def point_addition(P,Q,E):
     if len(E) < 3:
@@ -58,4 +58,13 @@ def decrypt_flag(shared_secret: int, iv: str, ciphertext: str):
         return plaintext.decode('ascii')
 
 
+def json_recv(r):
+    line = r.recvline()
+    if b'{'!=line[0] or b'}'!=line[-1]:
+        return line
+    return json.loads(line.decode())
 
+def json_send(r, hsh):
+    request = json.dumps(hsh).encode()
+    r.sendline(request)
+    
