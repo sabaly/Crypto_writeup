@@ -68,3 +68,26 @@ def json_send(r, hsh):
     request = json.dumps(hsh).encode()
     r.sendline(request)
     
+""" 
+Notes : ecdsa
+Base : ellipic curve E, generator G, n = order(G)
+secret key : sk, public key : pk
+
+Signature : message m
+```
+    1. calculate hsh = hash(m)
+    2. generate random k in range(1...n-1)
+    3. calculate R = k*G and set r = R.x
+    4. calculate s = inv(k)*(h + r*sk) [n]
+    5. return (r,s)
+``` 
+
+Verification : message m, (r,s)
+```
+    1. calculate hsh = hash(m)
+    2. calculate s1 = inv(s)
+    3. calculate R1 = (h*s1)*G + (r*s1)*pk
+    4. set r1 = R1.x 
+    5. return True if r1==r else False
+``` 
+"""
