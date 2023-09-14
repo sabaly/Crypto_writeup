@@ -68,18 +68,17 @@ def factor_from_n_phi(phi_n, N):
         return 1,1
     p = mpf((b - mpf(sqrt(delta))) / 2)
     q = mpf((b + mpf(sqrt(delta))) / 2)
-    
     return p,q
 
-# wiener attack
-def wiener(N, e):
+# wiener attack for factoring N
+def wiener_factor(N, e):
     found = False
     p=q=1
     cont_frac = continued_frac(e, N)
     
     for rd in reduced_cont_frac(cont_frac):
         k, d = frac_from_contfrac(rd)
-        if (e*d - 1) % k != 0:
+        if (e*d - 1) % k != 0 and k == d:
             continue
         phi_n = (e*d - 1)//k
         p,q = factor_from_n_phi(phi_n, N)
@@ -92,4 +91,29 @@ def wiener(N, e):
     print("Failed ! maybe the condition is not satisfied (d < (1/3)*N^(1/4))")
     return None,None
 
-#print(wiener(616830313971863461474580904709, 616438096790422722768322924283))
+# finding a small d with wiener attack
+def wiener(N, e):
+    cont_frac = continued_frac(e, N)
+    for rd in reduced_cont_frac(cont_frac):
+        if (len(rd)-1)%2==0:
+            rd[-1] += 1 
+            k, dg = frac_from_contfrac(rd)
+        else:
+            k, dg = frac_from_contfrac(rd)
+        g = e*dg % k
+        if g == 0: # means this k and dg  are wrong guests
+            continue
+        phi = e*dg // k
+        
+        if (N - phi + 1) % 2 != 0:  # means x is not an integer
+            continue
+        x = (N - phi + 1)//2 # represent (p+q)/2
+        y = x**2 - N # represente ((p-q)/2)^2
+        if pari.issquare(y):
+            d = dg//g
+            if d!=1:
+                return d
+
+    print('oups ! wiener attack did not work')
+    return -1
+#print(wiener_factor(616830313971863461474580904709, 616438096790422722768322924283))
