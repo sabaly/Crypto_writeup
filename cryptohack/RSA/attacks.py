@@ -2,11 +2,13 @@ from cypari2 import Pari
 from math import floor, gcd
 from Crypto.Util.number import inverse
 from mpmath import *
+from random import randint
+from time import time as t
+
 mp.dps = 100
 
 pari = Pari()
 
-modulus = [187, 5893, 7171, 3439, 799] 
 # fermat's attack : kraitchik approch
 def fermat(N):
     a = floor(pari.sqrt(N))
@@ -19,11 +21,15 @@ def fermat(N):
     return gcd(a-floor(pari.sqrt(x)), N), gcd(a+floor(pari.sqrt(x)), N)
 
 # test fermat
-""" for n in modulus:
+"""
+modulus = [187, 5893, 7171, 3439, 799]  
+for n in modulus:
     print(n, "\t:\t", fermat(n)) """
 
 
-
+""" 
+This section we implement wiener attack base on continued fractions.
+"""
 # continued fraction of a/b
 def continued_frac(a,b):
     if a < b:
@@ -39,6 +45,7 @@ def continued_frac(a,b):
     cont_frac.append(a)
     return cont_frac
 
+# reconstiture fraction from it's continued form
 def frac_from_contfrac(cont_frac):
     reversed = False
     if cont_frac[0] == 0:
@@ -116,4 +123,24 @@ def wiener(N, e):
 
     print('oups ! wiener attack did not work')
     return -1
-#print(wiener_factor(616830313971863461474580904709, 616438096790422722768322924283))
+
+# The following 
+def factor_N_from_d(N,e,d):
+    k = e*d - 1
+    g = randint(2, N-1)
+    round = 0
+    while k%2 == 0:
+        k//=2
+        x = pow(g, k, N)
+        p=gcd(x-1,N)
+        if x > 1 and p > 1:
+            return p
+        
+        if k%2 == 1:
+            k = e*d - 1
+            g = randint(2, N-1)
+            round+=1
+            if round > 40:
+                break
+    return -1
+    
