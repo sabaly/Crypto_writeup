@@ -2,7 +2,7 @@
 e = 3 (very small) and p,q are 1024 bits so N is huge
 
 Probably pt**3 is very very small compare to N then ct  is the cubic of pt in integer.
-We thus have to compute the cubic root of ct over integers.
+We just have to compute the cubic root of ct over integers.
 
 with pari/gp we just have : pt = ct^(1/3)
 """
