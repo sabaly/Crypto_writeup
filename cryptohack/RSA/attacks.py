@@ -3,11 +3,11 @@ from math import floor, gcd
 from Crypto.Util.number import inverse
 from mpmath import *
 from random import randint
-from time import time as t
+from sage.all import *
+from decimal import Decimal
 
 mp.dps = 100
 
-pari = Pari()
 
 # fermat's attack : kraitchik approch
 def fermat(N):
@@ -100,6 +100,7 @@ def wiener_factor(N, e):
 
 # finding a small d with wiener attack
 def wiener(N, e):
+    pari = Pari()
     cont_frac = continued_frac(e, N)
     for rd in reduced_cont_frac(cont_frac):
         if (len(rd)-1)%2==0:
@@ -143,4 +144,3 @@ def factor_N_from_d(N,e,d):
             if round > 40:
                 break
     return -1
-    
