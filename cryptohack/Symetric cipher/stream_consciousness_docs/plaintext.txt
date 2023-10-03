@@ -1,0 +1,77 @@
+Phrase : I'm unhappy, I deserve it, the f	 next letter cipher : f0
+Phrase : crypto{k3y57r34m_r3u53_15_f474l}	 next letter cipher : 
+
+Phrase : I'm unhappy, I deserve it, the f	 next letter cipher : f0
+Phrase : Perhaps he has missed the train 	 next letter cipher : f0
+Phrase : Perhaps he has missed the train 	 next letter cipher : f0
+Phrase : What a nasty smell this paint ha	 next letter cipher : f5
+Phrase : Dolly will think that I'm leavin	 next letter cipher : f6
+Phrase : I shall lose everything and not 	 next letter cipher : f6
+Phrase : As if I had any wish to be in th	 next letter cipher : f4
+Phrase : Three boys running, playing at h	 next letter cipher : fe
+Phrase : No, I'll go in to Dolly and tell	 next letter cipher : b1
+Phrase : As if I had any wish to be in th	 next letter cipher : f4
+Phrase : How proud and happy he'll be whe	 next letter cipher : ff
+Phrase : How proud and happy he'll be whe	 next letter cipher : ff
+Phrase : What a nasty smell this paint ha	 next letter cipher : f5
+Phrase : Love, probably? They don't know 	 next letter cipher : f9
+Phrase : Would I have believed then that 	 next letter cipher : d8
+Phrase : The terrible thing is that the p	 next letter cipher : f0
+Phrase : Perhaps he has missed the train 	 next letter cipher : f0
+Phrase : What a lot of things that then s	 next letter cipher : f4
+Phrase : What a lot of things that then s	 next letter cipher : f4
+Phrase : I'm unhappy, I deserve it, the f	 next letter cipher : f0
+Phrase : These horses, this carriage - ho	 next letter cipher : e6
+Phrase : It can't be torn out, but it can	 next letter cipher : b1
+Phrase : I'm unhappy, I deserve it, the f	 next letter cipher : f0
+Phrase : How proud and happy he'll be whe	 next letter cipher : ff
+Phrase : How proud and happy he'll be whe	 next letter cipher : ff
+Phrase : Dolly will think that I'm leavin	 next letter cipher : f6
+Phrase : crypto{k3y57r34m_r3u53_15_f474l}	 next letter cipher : 
+
+Phrase : How proud and happy he'll be whe	 next letter cipher : ff
+Phrase : It can't be torn out, but it can	 next letter cipher : b1
+Phrase : I shall lose everything and not 	 next letter cipher : f6
+Phrase : Three boys running, playing at h	 next letter cipher : fe
+Phrase : What a lot of things that then s	 next letter cipher : f4
+Phrase : Perhaps he has missed the train 	 next letter cipher : f0
+Phrase : No, I'll go in to Dolly and tell	 next letter cipher : b1
+Phrase : The terrible thing is that the p	 next letter cipher : f0
+Phrase : What a lot of things that then s	 next letter cipher : f4
+Phrase : What a nasty smell this paint ha	 next letter cipher : f5
+Phrase : Perhaps he has missed the train 	 next letter cipher : f0
+Phrase : Love, probably? They don't know 	 next letter cipher : f9
+Phrase : The terrible thing is that the p	 next letter cipher : f0
+Phrase : Dolly will think that I'm leavin	 next letter cipher : f6
+Phrase : Would I have believed then that 	 next letter cipher : d8
+Phrase : It can't be torn out, but it can	 next letter cipher : b1
+Phrase : Three boys running, playing at h	 next letter cipher : fe
+Phrase : crypto{k3y57r34m_r3u53_15_f474l}	 next letter cipher : 
+
+Phrase : These horses, this carriage - ho	 next letter cipher : e6
+Phrase : I'm unhappy, I deserve it, the f	 next letter cipher : f0
+Phrase : I shall, I'll lose everything if	 next letter cipher : b1
+Phrase : As if I had any wish to be in th	 next letter cipher : f4
+Phrase : I shall, I'll lose everything if	 next letter cipher : b1
+Phrase : I'm unhappy, I deserve it, the f	 next letter cipher : f0
+Phrase : What a nasty smell this paint ha	 next letter cipher : f5
+Phrase : Why do they go on painting and b	 next letter cipher : e4
+Phrase : These horses, this carriage - ho	 next letter cipher : e6
+Phrase : The terrible thing is that the p	 next letter cipher : f0
+Phrase : Dolly will think that I'm leavin	 next letter cipher : f6
+Phrase : Perhaps he has missed the train 	 next letter cipher : f0
+Phrase : These horses, this carriage - ho	 next letter cipher : e6
+Phrase : No, I'll go in to Dolly and tell	 next letter cipher : b1
+Phrase : Why do they go on painting and b	 next letter cipher : e4
+Phrase : I'm unhappy, I deserve it, the f	 next letter cipher : f0
+Phrase : How proud and happy he'll be whe	 next letter cipher : ff
+Phrase : It can't be torn out, but it can	 next letter cipher : b1
+Phrase : Perhaps he has missed the train 	 next letter cipher : f0
+Phrase : No, I'll go in to Dolly and tell	 next letter cipher : b1
+Phrase : I shall, I'll lose everything if	 next letter cipher : b1
+Phrase : What a nasty smell this paint ha	 next letter cipher : f5
+Phrase : Perhaps he has missed the train 	 next letter cipher : f0
+Phrase : The terrible thing is that the p	 next letter cipher : f0
+Phrase : It can't be torn out, but it can	 next letter cipher : b1
+Phrase : I shall lose everything and not 	 next letter cipher : f6
+Phrase : Three boys running, playing at h	 next letter cipher : fe
