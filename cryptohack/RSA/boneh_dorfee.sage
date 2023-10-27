@@ -1,36 +1,35 @@
-import time
-# return || pol ||^2
-def norm_pol(Pol): 
-    coefs = Pol.coefficients()
-    return sum([x**2 for x in coefs])
+# source : 
+# https://www.davidwong.fr/papers/david_wong_rsa_lll_boneh_durfee__2015.pdf
 
-def get_g_s_poly(f, u, x, y, e, m, X, Y, U, Q):
+import time
+
+# This function computes x-shifts
+def get_g_s_poly(f, u, x, y, e, m, U, Q):
     g_s = []
     for k in range(m+1):
         for i in range(m-k+1):
-            tmp = (x)**i * f(u, x, y)**k * e**(m-k)
+            tmp = x**i * f(u, x, y)**k * e**(m-k)
             g_s.append(Q(tmp).lift())
 
     return g_s
 
-def get_h_s_poly(f, u, x, y, e, m, t, X, Y, U, Q):
+# This function computes y-shifts
+def get_h_s_poly(f, u, x, y, e, m, t, U, Q):
     h_s = []
     for j in range(1, t+1):
         for k in range(floor(m/t)*j, m+1):
-            tmp = (y)**j * f(u, x, y)**k * e**(m-k)
+            tmp = y**j * f(u, x, y)**k * e**(m-k)
             h_s.append(Q(tmp).lift())
     return h_s
 
-def get_matrix(pols, U,X,Y, monomials, bound):
+def get_matrix(pols, U, X, Y, monomials):
     n = len(monomials)
     M = Matrix(ZZ, n)
-    
     for i in range(n):
         M[i,0] = pols[i].constant_coefficient()
         for j in range(1, i+1):
             if monomials[j] in pols[i].monomials():
                 M[i,j] = pols[i].monomial_coefficient(monomials[j])*monomials[j](U,X,Y)
-
     return M
 
 def get_poly(coefs, monomials, X,Y,U):
@@ -56,16 +55,15 @@ def boneh_dorfee(N, e):
     U = X*Y + 1
     stop = False
     m = 5
-    bound = e**m
     t = ceil(m*(1-2*delta)/2)
     start_time = time.time()
     xx=yy=-1 # final solution
     while not stop:
         # getting x-shift
-        g_s = get_g_s_poly(f, u, x, y, e, m, X, Y, U, Q)
+        g_s = get_g_s_poly(f, u, x, y, e, m, U, Q)
         g_s.sort()
         # getting y-shifts
-        h_s = get_h_s_poly(f, u, x, y, e, m, t, X, Y, U, Q)
+        h_s = get_h_s_poly(f, u, x, y, e, m, t, U, Q)
         
         monomials = []
         for g in g_s:
@@ -77,7 +75,7 @@ def boneh_dorfee(N, e):
             for k in range(floor(m/t)*j, m+1):
                 monomials.append(u**k * y**j)
         
-        M = get_matrix(g_s + h_s, U, X, Y, monomials, bound)
+        M = get_matrix(g_s + h_s, U, X, Y, monomials)
         
         M = M.LLL()
         n = len(monomials)
@@ -103,7 +101,6 @@ def boneh_dorfee(N, e):
         if not pols_found:
             m+=1
             t = ceil(m*(1-2*delta)/2)
-            bound = e**m
             continue
         
         r = r(q,q)
@@ -112,7 +109,7 @@ def boneh_dorfee(N, e):
         if len(sols) == 0:
             break
         yy = sols[0][0]
-        print(yy)
+        
         g1 = g1(q,yy)
         sols = g1.roots()
         if len(sols) == 0:
@@ -143,7 +140,5 @@ def example():
         print("Didn't work !")
     else:
         print("Private key found d = ", d)
-# example()
-# source : 
-# https://www.davidwong.fr/papers/david_wong_rsa_lll_boneh_durfee__2015.pdf
-#
+
+#example()

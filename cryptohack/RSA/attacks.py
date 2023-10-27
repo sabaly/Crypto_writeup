@@ -1,14 +1,12 @@
-from cypari2 import Pari 
+import cypari2 
 from math import floor, gcd
 from Crypto.Util.number import inverse
 from mpmath import *
 from random import randint
 from sage.all import *
 from decimal import Decimal
-
 mp.dps = 100
-
-
+pari = cypari2.Pari()
 # fermat's attack : kraitchik approch
 def fermat(N):
     a = floor(pari.sqrt(N))
@@ -25,7 +23,6 @@ def fermat(N):
 modulus = [187, 5893, 7171, 3439, 799]  
 for n in modulus:
     print(n, "\t:\t", fermat(n)) """
-
 
 """ 
 This section we implement wiener attack base on continued fractions.
@@ -100,7 +97,6 @@ def wiener_factor(N, e):
 
 # finding a small d with wiener attack
 def wiener(N, e):
-    pari = Pari()
     cont_frac = continued_frac(e, N)
     for rd in reduced_cont_frac(cont_frac):
         if (len(rd)-1)%2==0:
@@ -124,6 +120,8 @@ def wiener(N, e):
 
     print('oups ! wiener attack did not work')
     return -1
+
+# You can find Boneh_Dorfee's attack implementation in sage int this same folder
 
 # The following 
 def factor_N_from_d(N,e,d):
